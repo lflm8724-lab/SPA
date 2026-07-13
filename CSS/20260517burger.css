@@ -1,0 +1,723 @@
+/*=======rigisterModal=======*/
+
+/* 全局字體與 Modal 主體 */
+.ff-modal-content {
+    background-color: #fcfbf7;
+    border: 2px solid #4a3b32 !important;
+    border-radius: 16px !important;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+}
+
+/* 芥末黃頁首 */
+.ff-modal-header {
+    background-color: #f4d35e;
+    border-bottom: 2px solid #4a3b32 !important;
+    border-radius: 14px 14px 0 0 !important;
+    color: #4a3b32;
+}
+
+.ff-btn-close {
+    filter: brightness(0.2);
+}
+
+/* 左側：會員條款外框 */
+.ff-terms-container {
+    background-color: #f7f5f0;
+    border: 1px solid #e0dbcf;
+    border-radius: 8px;
+}
+
+.ff-terms-title {
+    color: #4a3b32;
+}
+
+/* 條款滾動內文區 */
+.ff-terms-content {
+    max-height: 280px;
+    overflow-y: auto;
+    font-size: 0.85rem;
+    line-height: 1.6;
+    color: #6c6359;
+}
+
+/* 右側：表單標籤與輸入框 */
+.ff-form-label {
+    color: #4a3b32;
+}
+
+.ff-form-control {
+    border-color: #ccd0cf !important;
+    border-radius: 6px !important;
+    background-color: #fff !important;
+}
+
+.ff-form-control:focus {
+    border-color: #f4d35e !important;
+    /* 聚焦時變成芥末黃 */
+    box-shadow: 0 0 0 0.25rem rgba(244, 211, 94, 0.25) !important;
+}
+
+/* 條款勾選框與文字 */
+.ff-checkbox {
+    border-color: #4a3b32 !important;
+}
+
+.ff-checkbox-label {
+    color: #2a6f97;
+}
+
+/* 頁尾按鈕 */
+.ff-btn-cancel {
+    border-color: #a0988e !important;
+    color: #7a7167 !important;
+    border-radius: 8px !important;
+    font-size: 0.9rem;
+}
+
+.ff-btn-cancel:hover {
+    background-color: #e0dbcf;
+    color: #4a3b32 !important;
+}
+
+.ff-btn-submit {
+    background-color: #386641 !important;
+    color: #ffffff !important;
+    border-radius: 8px !important;
+    font-size: 0.9rem;
+}
+
+.ff-btn-submit:hover {
+    background-color: #2a4d31 !important;
+}
+
+/*=======loggingModal=======*/
+
+/* 彈窗整體圓角與陰影優化 */
+.custom-modal .modal-content {
+    border: none;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    background-color: #ffffff;
+}
+
+/* 標頭美化：採用藍色漸層 */
+.custom-modal .modal-header.bg-primary {
+    background: linear-gradient(135deg, #0d6efd 0%, #0a58ca 100%) !important;
+    border-bottom: none;
+    padding: 20px 24px;
+}
+
+.custom-modal .modal-title {
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+/* 內文區塊間距優化 */
+.custom-modal .modal-body {
+    padding: 32px 24px;
+}
+
+/* 表單標籤與輸入框美化 */
+.custom-form-group .form-label {
+    font-weight: 500;
+    color: #495057;
+    margin-bottom: 8px;
+    font-size: 0.95rem;
+}
+
+.custom-form-group .form-control {
+    border: 1.5px solid #dee2e6;
+    border-radius: 8px;
+    padding: 12px 16px;
+    font-size: 0.95rem;
+    transition: all 0.2s ease-in-out;
+    background-color: #f8f9fa;
+}
+
+/* 輸入框聚焦特效 */
+.custom-form-group .form-control:focus {
+    background-color: #ffffff;
+    border-color: #0d6efd;
+    box-shadow: 0 0 0 4px rgba(13, 110, 253, 0.15);
+    color: #212529;
+}
+
+/* 頁尾按鈕美化 */
+.custom-modal .modal-footer {
+    border-top: 1px solid #f1f3f5;
+    padding: 16px 24px 24px;
+}
+
+.custom-modal .btn {
+    padding: 10px 24px;
+    border-radius: 8px;
+    font-weight: 500;
+    transition: all 0.2s;
+}
+
+/* 取消按鈕微調 */
+.custom-modal .btn-cancel {
+    background-color: #e9ecef;
+    border: none;
+    color: #495057;
+}
+
+.custom-modal .btn-cancel:hover {
+    background-color: #dee2e6;
+    color: #212529;
+}
+
+/* 登入按鈕微調 */
+.custom-modal .btn-login {
+    background-color: #0d6efd;
+    border: none;
+    box-shadow: 0 4px 12px rgba(13, 110, 253, 0.2);
+}
+
+.custom-modal .btn-login:hover {
+    background-color: #0b5ed7;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 16px rgba(13, 110, 253, 0.3);
+}
+
+.custom-modal .btn-login:active {
+    transform: translateY(0);
+}
+
+/*=======Carousel=======*/
+
+/* --- 輪播圖主體與背景優化 --- */
+.custom-commercial-carousel .carousel-item {
+    height: 90vh;
+    /* 承襲原本的高度設定 */
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+    overflow: hidden;
+}
+
+/* 商業感核心：微漸層遮罩，避免高亮度圖片讓白字隱形 */
+.custom-commercial-carousel .carousel-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg,
+            rgba(0, 0, 0, 0.2) 0%,
+            rgba(0, 0, 0, 0.4) 60%,
+            rgba(0, 0, 0, 0.6) 100%);
+    z-index: 1;
+}
+
+/* --- 文字內容區塊精緻化 --- */
+.custom-commercial-carousel .carousel-caption {
+    z-index: 2;
+    bottom: 15%;
+    /* 稍微往上提，留白更顯大氣 */
+    padding: 0 20px;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* 文字細節調整 */
+.custom-commercial-carousel .tracking-wide {
+    letter-spacing: 2px;
+    /* 字距加寬，營造品牌高級感 */
+}
+
+.custom-commercial-carousel .opacity-90 {
+    opacity: 0.85;
+    line-height: 1.8;
+    /* 加大行距，適合 100 字左右的長文 */
+}
+
+.custom-commercial-carousel .max-w-600 {
+    max-width: 650px;
+    /* 限制內文寬度，避免文字在寬螢幕散開 */
+}
+
+/* --- 指示器 (Indicators) 改為現代感條狀 --- */
+.custom-commercial-carousel .carousel-indicators [button] {
+    display: none;
+    /* 防呆 */
+}
+
+.custom-commercial-carousel .carousel-indicators button {
+    width: 30px;
+    height: 4px;
+    border-radius: 2px;
+    background-color: rgba(255, 255, 255, 0.4);
+    border: none;
+    margin: 0 5px;
+    transition: all 0.3s ease;
+}
+
+.custom-commercial-carousel .carousel-indicators button.active {
+    width: 50px;
+    /* 點選時拉長，充滿動態感 */
+    background-color: #ffffff;
+}
+
+/* --- 左右控制鈕 (Controls) 高級感微調 --- */
+.custom-commercial-carousel .carousel-control-prev,
+.custom-commercial-carousel .carousel-control-next {
+    width: 5%;
+    opacity: 0;
+    /* 平時隱藏 */
+    transition: all 0.3s ease;
+    z-index: 3;
+}
+
+/* 滑鼠滑入輪播圖時，控制鈕才溫和浮現 */
+.custom-commercial-carousel:hover .carousel-control-prev,
+.custom-commercial-carousel:hover .carousel-control-next {
+    opacity: 0.7;
+}
+
+.custom-commercial-carousel .carousel-control-prev:hover,
+.custom-commercial-carousel .carousel-control-next:hover {
+    opacity: 1;
+}
+
+/* 控制鈕圓形輕奢感外框 */
+.custom-commercial-carousel .carousel-control-prev-icon,
+.custom-commercial-carousel .carousel-control-next-icon {
+    background-size: 45%;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 24px;
+    border-radius: 50%;
+    backdrop-filter: blur(4px);
+    /* 磨砂玻璃效果 */
+    transition: all 0.2s ease;
+}
+
+.custom-commercial-carousel .carousel-control-prev-icon:hover,
+.custom-commercial-carousel .carousel-control-next-icon:hover {
+    background-color: #ffffff;
+    border-color: #ffffff;
+    color: #000000;
+    filter: invert(1);
+    /* 懸停時箭頭變黑色 */
+}
+
+/* --- 商業轉場動畫：文字淡入上浮 --- */
+.custom-commercial-carousel .carousel-item.active .carousel-caption h5 {
+    animation: fadeInUp 0.8s ease forwards;
+}
+
+.custom-commercial-carousel .carousel-item.active .carousel-caption p {
+    animation: fadeInUp 0.8s ease forwards 0.2s;
+    /* 延遲 0.2 秒 */
+    opacity: 0;
+}
+
+.custom-commercial-carousel .carousel-item.active .caption-action {
+    animation: fadeInUp 0.8s ease forwards 0.4s;
+    /* 延遲 0.4 秒 */
+    opacity: 0;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/*=======Section4=======*/
+
+/* 自訂商業質感樣式 */
+.custom-section {
+    background-color: #f8f9fa;
+    /* bg-light */
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+}
+
+.custom-card {
+    background-color: #ffffff;
+    border-radius: 1rem;
+    /* rounded-4 */
+    overflow: hidden;
+    box-shadow: 0 .125rem .25rem rgba(0, 0, 0, .075);
+    /* shadow-sm */
+}
+
+/* 左側圖片區塊 */
+.feature-image {
+    background-image: url(../images/fastfood4.jpg);
+    background-position: center center;
+    background-size: cover;
+    min-height: 350px;
+    /* 確保手機版有一定高度不扁塌 */
+}
+
+/* 右側文字區塊 */
+.feature-content {
+    padding: 1.5rem;
+}
+
+/* 讓大標題更有張力 */
+.main-title {
+    letter-spacing: -1px;
+    font-weight: 900;
+    /* fw-black */
+}
+
+/* 質感小標籤 */
+.badge-highlight {
+    background-color: #f8d7da;
+    /* bg-danger-subtle */
+    color: #dc3545;
+    /* text-danger */
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.375rem;
+    font-size: 1.25rem;
+    /* fs-5 */
+    vertical-align: middle;
+    font-weight: bold;
+}
+
+/* 內文微調 */
+.desc-text {
+    max-width: 500px;
+    line-height: 1.6;
+}
+
+/* 數據區塊 */
+.stat-border {
+    border-top: 1px solid #dee2e6;
+    /* border-light */
+    padding-top: 1.5rem;
+}
+
+.stat-number {
+    font-weight: 900;
+    color: #1e4620 !important;
+    /* 高級感深綠色 */
+    margin-bottom: 0;
+}
+
+.stat-unit {
+    font-size: 0.875rem;
+    /* fs-6 */
+    color: #6c757d;
+    /* text-muted */
+    font-weight: normal;
+}
+
+/* ── Section 6 ─ 企業形象三欄 ──────────────────── */
+
+#s06 {
+    background: #0f0f0f;
+    padding: 5rem 0;
+}
+
+.s06-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+/* 三欄 Grid，中間細線分隔 */
+.s06-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    background: #222;
+    /* 露出的 2px gap 即為分隔線顏色 */
+    border: 2px solid #222;
+    border-radius: 18px;
+    overflow: hidden;
+}
+
+/* 每一欄 */
+.s06-card {
+    background: #0f0f0f;
+    padding: 3.5rem 2.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    border-top: 3px solid transparent;
+    transition: background 0.3s;
+}
+
+.s06-card:hover {
+    background: #161616;
+}
+
+/* 上方 accent 色條 */
+.s06-c1 {
+    border-top-color: #e8a820;
+}
+
+.s06-c2 {
+    border-top-color: #4ab8d4;
+}
+
+.s06-c3 {
+    border-top-color: #888;
+}
+
+/* 圓形 icon 底座 */
+.s06-icon-wrap {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.8rem;
+    font-size: 2.2rem;
+    flex-shrink: 0;
+}
+
+.s06-c1 .s06-icon-wrap {
+    background: rgba(232, 168, 32, .12);
+    color: #e8a820;
+}
+
+.s06-c2 .s06-icon-wrap {
+    background: rgba(74, 184, 212, .12);
+    color: #4ab8d4;
+}
+
+.s06-c3 .s06-icon-wrap {
+    background: rgba(200, 200, 200, .08);
+    color: #bbb;
+}
+
+/* 小標籤（eyebrow） */
+.s06-eyebrow {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    margin-bottom: 0.6rem;
+}
+
+.s06-c1 .s06-eyebrow {
+    color: #e8a820;
+}
+
+.s06-c2 .s06-eyebrow {
+    color: #4ab8d4;
+}
+
+.s06-c3 .s06-eyebrow {
+    color: #888;
+}
+
+/* 主標題 */
+.s06-title {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #f0f0f0;
+    line-height: 1.55;
+    margin-bottom: 0;
+}
+
+/* 短底線裝飾 */
+.s06-divider {
+    width: 32px;
+    height: 2px;
+    border-radius: 2px;
+    margin: 1.1rem auto;
+    flex-shrink: 0;
+}
+
+.s06-c1 .s06-divider {
+    background: #e8a820;
+}
+
+.s06-c2 .s06-divider {
+    background: #4ab8d4;
+}
+
+.s06-c3 .s06-divider {
+    background: #666;
+}
+
+/* 內文 */
+.s06-body {
+    font-size: 0.9rem;
+    color: #999;
+    line-height: 1.9;
+    margin: 0;
+}
+
+/* ── Section 7 ─ 服務項目（左圖右文） ──────────── */
+
+#s07 {
+    background: #f5f3ee;
+    min-height: 520px;
+}
+
+/* 圖片右側漸層，讓圖自然收邊 */
+.s07-img-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right, rgba(0, 0, 0, .15) 0%, rgba(0, 0, 0, 0) 100%);
+    pointer-events: none;
+}
+
+/* 整體文字卡片 */
+.s07-text {
+    background: #f5f3ee !important;
+    padding: 4rem 3rem !important;
+    margin: 0 !important;
+    border-radius: 0 !important;
+    z-index: 1;
+}
+
+/* eyebrow 小標籤 */
+.s07-eyebrow {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #c08a10;
+    margin-bottom: 0.7rem;
+}
+
+/* 主標題：左側金色邊線 */
+.s07-heading {
+    font-size: 1.6rem !important;
+    font-weight: 800 !important;
+    color: #111 !important;
+    line-height: 1.45 !important;
+    border-left: 4px solid #e8a820;
+    padding-left: 1rem;
+    margin-bottom: 1.2rem !important;
+}
+
+/* 主內文 */
+.s07-body {
+    font-size: 0.93rem;
+    color: #555;
+    line-height: 1.9;
+    margin-bottom: 1.8rem;
+    padding-left: 1.1rem;
+}
+
+/* 查看更多按鈕 */
+.s07-btn {
+    display: inline-block;
+    padding: 0.55rem 2rem;
+    border: 2px solid #2a7a2a !important;
+    border-radius: 30px !important;
+    color: #2a7a2a !important;
+    font-size: 0.88rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    background: transparent !important;
+    margin-bottom: 2.2rem;
+    transition: background 0.2s, color 0.2s;
+}
+
+.s07-btn:hover {
+    background: #2a7a2a !important;
+    color: #fff !important;
+}
+
+/* Features 區域：上分隔線 */
+.s07-features-row {
+    border-top: 1px solid #dedad2;
+    padding-top: 1rem;
+    margin-top: 0.5rem;
+}
+
+/* 單一 feature 卡 */
+.s07-feature {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+/* icon 小方塊 */
+.s07-feature-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    background: #fff8e6;
+    border: 1px solid #f0e0a8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    color: #e8a820;
+    margin-bottom: 0.5rem;
+}
+
+/* feature 小標題 */
+.s07-feature-title {
+    font-size: 1rem !important;
+    font-weight: 700 !important;
+    color: #111 !important;
+    margin-bottom: 0.3rem !important;
+}
+
+/* feature 說明文字 */
+.s07-feature-body {
+    font-size: 0.87rem;
+    color: #777;
+    line-height: 1.85;
+    margin: 0;
+}
+
+/* RWD：手機時左側圖收起，內容全寬 */
+@media (max-width: 768px) {
+    #s07 {
+        min-height: auto;
+    }
+
+    .s07-text {
+        padding: 2.5rem 1.5rem !important;
+    }
+}
+
+/* RWD：768px 以下改單欄 */
+@media (max-width: 768px) {
+    .s06-grid {
+        grid-template-columns: 1fr;
+        gap: 1px;
+    }
+
+    .s06-card {
+        padding: 2.5rem 1.8rem;
+        border-top-width: 0;
+        border-left: 3px solid transparent;
+    }
+
+    .s06-c1 {
+        border-left-color: #e8a820;
+        border-top: none;
+    }
+
+    .s06-c2 {
+        border-left-color: #4ab8d4;
+        border-top: none;
+    }
+
+    .s06-c3 {
+        border-left-color: #888;
+        border-top: none;
+    }
+}
+
+/* 媒體查詢：電腦版 (md 以上) 文字靠左，並加大內襯空間 */
+@media (min-width: 768px) {
+    .feature-content {
+        padding: 3rem !important;
+        text-align: left !important;
+    }
+}
