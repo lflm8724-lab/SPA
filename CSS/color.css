@@ -1,0 +1,344 @@
+:root {
+    /* 主色 Primary */
+    --oat-white: #F3EEE6;
+    /* 燕麥米白 - 主背景 */
+    --misty-blue: #A8B5B8;
+    /* 霧灰藍 - 主色 */
+    --matcha-green: #8A9A82;
+    /* 抹茶灰綠 - 主色 */
+
+    /* 輔色 Secondary */
+    --caramel-brown: #B08968;
+    /* 焦糖棕 */
+    --lotus-pink: #D9BBB0;
+    /* 藕色 */
+    --sage-green: #9CAF88;
+    /* 鼠尾草綠 */
+    --taro-grey: #B7A6A0;
+    /* 灰藕紫 */
+    --milktea-brown: #C9A27E;
+    /* 奶茶棕 */
+
+    /* 點綴色 Accent */
+    --terracotta: #C77B58;
+    /* 赤陶橘 */
+    --honey-yellow: #E8B86D;
+    /* 蜜柑黃 */
+    --pine-teal: #7A9E9F;
+    /* 松石霧綠 */
+    --misty-pink: #E3C9C0;
+    /* 霧粉 */
+
+    /* 文字/背景/線條 Text & Background */
+    --cocoa-brown: #5C4433;
+    /* 可可深棕 - 主文字 */
+    --ink-black: #2E2A26;
+    /* 墨黑 - 標題/強調文字 */
+    --warm-white: #FAF7F2;
+    /* 暖白 - 卡片背景 */
+    --graphite-grey: #4A4744;
+    /* 石墨灰 - 邊框/次文字 */
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+.section-block {
+    scroll-margin-top: 80px;
+    /* 數值等於或略大於 Navbar 的高度 */
+}
+
+#hero,
+#s04-story-manifesto,
+#menu,
+#seasonal,
+#locator,
+#order {
+    scroll-margin-top: 90px;
+}
+
+.navbar-nav .nav-link.active {
+    color: var(--terracotta) !important;
+    font-weight: 500;
+    position: relative;
+}
+
+.navbar-nav .nav-link.active::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -2px;
+    height: 2px;
+    background: var(--terracotta);
+}
+
+.nav-scrolled {
+    box-shadow: 0 2px 12px rgba(46, 42, 38, 0.08);
+}
+
+/* ===== Section 4：品牌理念 + 宣言 ===== */
+
+.manifesto-quote {
+    position: relative;
+    padding-left: 1.75rem;
+    border-left: 2px solid var(--terracotta);
+}
+
+.manifesto-text {
+    font-size: clamp(1.4rem, 2.4vw, 2rem);
+    line-height: 1.7;
+    color: var(--ink-black);
+}
+
+.portrait-frame {
+    position: relative;
+    padding: 14px;
+    border: 1px solid rgba(74, 71, 68, 0.15);
+    border-radius: 4px;
+    background-color: var(--warm-white);
+}
+
+.portrait-image {
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    background-position: center center;
+    background-size: cover;
+    background-color: var(--misty-blue);
+    /* 圖片載入前的預設底色 */
+    border-radius: 2px;
+}
+
+/* ===== Section 7：節氣限定卡片 ===== */
+
+.s07-card {
+    position: relative;
+    padding: 3rem 2rem 2rem;
+    border-radius: 6px;
+    text-align: center;
+    height: 100%;
+    transition: transform .35s ease, box-shadow .35s ease;
+}
+
+.s07-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 16px 32px rgba(46, 42, 38, 0.12);
+}
+
+.s07-icon {
+    width: 56px;
+    height: 56px;
+    margin: 0 auto 1.25rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+}
+
+.s07-term {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 0.85rem;
+    letter-spacing: 0.35em;
+    opacity: 0.85;
+    margin-bottom: 0.5rem;
+}
+
+.s07-desc {
+    font-size: 0.95rem;
+    line-height: 1.8;
+    min-height: 4.5em;
+}
+
+.s07-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1.75rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid;
+    font-size: 0.85rem;
+}
+
+.s07-price {
+    font-family: 'Noto Serif TC', serif;
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+
+/* ===== Section 8：茶園時間軸 ===== */
+
+.s08-timeline {
+    position: relative;
+}
+
+/* 中央時間軸線，只在桌機顯示 */
+.s08-timeline::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 1px;
+    background: linear-gradient(to bottom, transparent, var(--taro-grey) 8%, var(--taro-grey) 92%, transparent);
+    transform: translateX(-50%);
+}
+
+.s08-timeline-point {
+    position: relative;
+    padding: 3rem 0;
+}
+
+.s08-timeline-point.s08-last {
+    padding-bottom: 0;
+}
+
+/* 時間軸節點圓點 */
+.s08-timeline-point::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 12px;
+    height: 12px;
+    background: var(--warm-white);
+    border: 2px solid var(--terracotta);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+}
+
+.s08-step {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 0.85rem;
+    letter-spacing: 0.3em;
+    color: var(--terracotta);
+    margin-bottom: 0;
+}
+
+.s08-title {
+    color: var(--ink-black);
+}
+
+.s08-sub {
+    color: var(--taro-grey);
+    font-weight: 400;
+}
+
+.s08-desc {
+    font-size: 1.05rem;
+    color: var(--graphite-grey);
+    line-height: 1.9;
+    max-width: 420px;
+}
+
+.s08-text.text-md-end .s08-desc {
+    margin-left: auto;
+}
+
+.s08-img {
+    aspect-ratio: 6 / 3;
+    background-position: center center;
+    background-size: cover;
+    background-color: var(--sage-green);
+    /* 圖片載入前的預設底色 */
+    border-radius: 4px;
+}
+
+/* ===== Section 14：線上訂購（模糊背景） ===== */
+
+.s14-order {
+    padding: 8rem 0;
+    overflow: hidden;
+}
+
+.s14-bg {
+    position: absolute;
+    inset: 0;
+    background-image: url(images/tea5.jpg);
+    background-position: center center;
+    background-size: cover;
+    background-color: var(--sage-green);
+    /* 圖片載入前預設底色 */
+    filter: blur(1px);
+    transform: scale(1.1);
+    /* 避免模糊後邊緣露白 */
+}
+
+.s14-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(46, 42, 38, 0.45);
+}
+
+/* ===== Modal 樣式 ===== */
+
+.s14-modal-content {
+    background-color: var(--warm-white);
+    border: none;
+    border-radius: 6px;
+}
+
+.s14-modal-header,
+.s14-modal-footer {
+    border-color: rgba(74, 71, 68, 0.12);
+}
+
+.s14-label {
+    font-size: 0.85rem;
+    letter-spacing: 0.05em;
+    color: var(--graphite-grey);
+}
+
+.s14-input {
+    border: 1px solid rgba(74, 71, 68, 0.2);
+    border-radius: 3px;
+}
+
+.s14-input:focus {
+    border-color: var(--terracotta);
+    box-shadow: 0 0 0 0.2rem rgba(199, 123, 88, 0.15);
+}
+
+.s14-radio-group {
+    display: flex;
+    gap: 0.75rem;
+}
+
+.s14-radio-btn {
+    border: 1px solid rgba(74, 71, 68, 0.25);
+    color: var(--graphite-grey);
+    border-radius: 3px;
+    padding: 0.5rem 1.25rem;
+}
+
+.btn-check:checked+.s14-radio-btn {
+    background-color: var(--terracotta);
+    border-color: var(--terracotta);
+    color: var(--warm-white);
+}
+
+@media (max-width: 991.98px) {
+    .portrait-image {
+        aspect-ratio: 4 / 5;
+    }
+
+    .manifesto-quote {
+        margin-top: 1rem;
+    }
+
+    .s08-timeline::before {
+        display: none;
+    }
+
+    .s08-timeline-point::after {
+        display: none;
+    }
+
+    .s08-text.text-md-end,
+    .s08-text.text-md-end .s08-desc {
+        text-align: left !important;
+        margin-left: 0;
+    }
+}
