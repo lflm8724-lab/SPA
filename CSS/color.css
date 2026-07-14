@@ -44,15 +44,85 @@ html {
     scroll-behavior: smooth;
 }
 
+/* 全站預設：霧綠色葉子游標 */
+body,
+body * {
+    cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Cpath d='M2 2 C4 3 16 3 22 12 C27 19 24 27 16 29 C8 31 2 26 1 18 C0.5 12 0.5 6 2 2 Z' fill='%238A9A82' stroke='%235C4433' stroke-width='1'/%3E%3Cpath d='M2 2 C5 10 6 19 14 27' fill='none' stroke='%235C4433' stroke-width='1' opacity='0.75'/%3E%3Cpath d='M16 29 C18 30 19 30.8 19.5 31.5' fill='none' stroke='%235C4433' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E") 2 2, auto !important;
+}
+
+/* 按鈕與連結 hover：中間值翠綠色葉子 */
+button:hover,
+a:hover {
+    cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Cpath d='M2 2 C4 3 16 3 22 12 C27 19 24 27 16 29 C8 31 2 26 1 18 C0.5 12 0.5 6 2 2 Z' fill='%2372A16E' stroke='%234D5838' stroke-width='1'/%3E%3Cpath d='M2 2 C5 10 6 19 14 27' fill='none' stroke='%234D5838' stroke-width='1' opacity='0.75'/%3E%3Cpath d='M16 29 C18 30 19 30.8 19.5 31.5' fill='none' stroke='%234D5838' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E") 2 2, auto !important;
+}
+
 .section-block {
     scroll-margin-top: 80px;
     /* 數值等於或略大於 Navbar 的高度 */
 }
 
+.wave-divider {
+    line-height: 0;
+    overflow: hidden;
+}
+
+.wave-divider svg {
+    display: block;
+    width: 100%;
+    height: 60px;
+}
+
+.hero-frame {
+    position: relative;
+}
+
+.hero-frame::before,
+.hero-frame::after,
+.hero-frame .corner-br,
+.hero-frame .corner-bl {
+    content: "";
+    position: absolute;
+    width: 36px;
+    height: 36px;
+    border-color: rgba(250, 247, 242, 0.6);
+    border-style: solid;
+    border-width: 0;
+}
+
+.hero-frame::before {
+    top: 200px;
+    left: 20px;
+    border-top-width: 1.5px;
+    border-left-width: 1.5px;
+}
+
+.hero-frame::after {
+    top: 200px;
+    right: 20px;
+    border-top-width: 1.5px;
+    border-right-width: 1.5px;
+}
+
+.hero-frame .corner-bl {
+    bottom: 200px;
+    left: 20px;
+    border-bottom-width: 1.5px;
+    border-left-width: 1.5px;
+}
+
+.hero-frame .corner-br {
+    bottom: 200px;
+    right: 20px;
+    border-bottom-width: 1.5px;
+    border-right-width: 1.5px;
+}
+
 #hero,
 #s04-story-manifesto,
+#featured,
 #menu,
 #seasonal,
+#sourcing,
 #locator,
 #order {
     scroll-margin-top: 90px;
@@ -180,7 +250,7 @@ html {
     top: 0;
     bottom: 0;
     left: 50%;
-    width: 1px;
+    width: 5px;
     background: linear-gradient(to bottom, transparent, var(--taro-grey) 8%, var(--taro-grey) 92%, transparent);
     transform: translateX(-50%);
 }
@@ -200,10 +270,10 @@ html {
     position: absolute;
     top: 50%;
     left: 50%;
-    width: 12px;
-    height: 12px;
+    width: 15px;
+    height: 15px;
     background: var(--warm-white);
-    border: 2px solid var(--terracotta);
+    border: 3px solid var(--terracotta);
     border-radius: 50%;
     transform: translate(-50%, -50%);
     z-index: 2;
@@ -238,12 +308,40 @@ html {
 }
 
 .s08-img {
-    aspect-ratio: 6 / 3;
+    aspect-ratio: 4 / 3;
     background-position: center center;
     background-size: cover;
     background-color: var(--sage-green);
-    /* 圖片載入前的預設底色 */
-    border-radius: 4px;
+    border-radius: 7px;
+}
+
+/* 新增 CSS */
+.sourcing-fixed-bg {
+    position: relative;
+    background-image: url(../images/tea8.jpg);
+    background-attachment: fixed;
+    background-position: center center;
+    background-size: cover;
+}
+
+.sourcing-fixed-bg::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(250, 247, 242, 0.65);
+    z-index: 0;
+}
+
+.sourcing-fixed-bg>.container {
+    position: relative;
+    z-index: 1;
+}
+
+/* 手機版 iOS Safari 不支援 background-attachment: fixed，改用一般捲動背景 */
+@media (max-width: 767.98px) {
+    .sourcing-fixed-bg {
+        background-attachment: scroll;
+    }
 }
 
 /* ===== Section 14：線上訂購（模糊背景） ===== */
@@ -319,6 +417,14 @@ html {
     color: var(--warm-white);
 }
 
+@media (min-width: 768px) {
+    .s08-img {
+        aspect-ratio: 5 / 3;
+        max-width: 80%;
+        margin: 0 auto;
+    }
+}
+
 @media (max-width: 991.98px) {
     .portrait-image {
         aspect-ratio: 4 / 5;
@@ -341,4 +447,64 @@ html {
         text-align: left !important;
         margin-left: 0;
     }
+}
+
+/* Navbar 葉子 icon 搖曳動畫 */
+@keyframes leaf-sway-hover {
+
+    0%,
+    100% {
+        transform: rotate(-8deg);
+    }
+
+    50% {
+        transform: rotate(8deg);
+    }
+}
+
+@keyframes leaf-sway-settle {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    8% {
+        transform: rotate(10deg);
+    }
+
+    20% {
+        transform: rotate(-8deg);
+    }
+
+    35% {
+        transform: rotate(6deg);
+    }
+
+    50% {
+        transform: rotate(-4deg);
+    }
+
+    65% {
+        transform: rotate(2.5deg);
+    }
+
+    80% {
+        transform: rotate(-1deg);
+    }
+
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+.navbar-leaf {
+    display: inline-block;
+    transform-origin: bottom center;
+}
+
+.navbar-leaf:hover {
+    animation: leaf-sway-hover 1.2s ease-in-out infinite;
+}
+
+.navbar-leaf.is-swinging {
+    animation: leaf-sway-settle 2s ease-out;
 }

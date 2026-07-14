@@ -46,6 +46,7 @@
             font-family: 'Noto Sans TC', sans-serif;
             color: var(--cocoa-brown);
             background-color: var(--warm-white);
+            /* background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E"); */
             font-weight: 300;
             letter-spacing: 0.02em;
         }
@@ -77,11 +78,14 @@
             padding: 0.7rem 2rem;
             border-radius: 2px;
             letter-spacing: 0.1em;
+            transition: background-color .3s ease, transform .3s ease, box-shadow .3s ease;
         }
 
         .btn-terracotta:hover {
-            background-color: var(--caramel-brown);
+            background-color: rgba(236, 94, 51, 0.76);
             color: var(--warm-white);
+            transform: translateY(-3px);
+            box-shadow: 0 3px 8px rgba(199, 114, 88, 0.3);
         }
 
         .btn-outline-brand {
@@ -90,11 +94,20 @@
             padding: 0.65rem 1.9rem;
             border-radius: 2px;
             letter-spacing: 0.1em;
+            transition: background-color .3s ease, color .3s ease, transform .3s ease;
         }
 
         .btn-outline-brand:hover {
             background-color: var(--ink-black);
             color: var(--warm-white);
+            transform: translateY(-3px);
+        }
+
+        .eyebroworigin {
+            letter-spacing: 0.3em;
+            font-size: 0.75rem;
+            color: var(--terracotta);
+            text-transform: uppercase;
         }
 
         .eyebrow {
@@ -102,6 +115,20 @@
             font-size: 0.75rem;
             color: var(--terracotta);
             text-transform: uppercase;
+        }
+
+        .eyebrow::after {
+            content: "";
+            display: block;
+            width: 80px;
+            height: 2px;
+            background: var(--terracotta);
+            opacity: 0.5;
+            margin: 0.6rem auto 0;
+        }
+
+        .eyebrow-start::after {
+            margin: 0.6rem 0 0 0;
         }
 
         .bg-soft {
@@ -121,6 +148,16 @@
 
         .card-brand:hover {
             transform: translateY(-6px);
+        }
+
+        .s05-img {
+            background-size: 100%;
+            background-position: center center;
+            transition: background-size 1.5s ease-out;
+        }
+
+        .card-brand:hover .s05-img {
+            background-size: 115%;
         }
 
         footer a {
@@ -190,7 +227,7 @@
     <!-- ========== 1. NAVBAR 導覽列 ========== -->
     <nav class="navbar navbar-expand-lg sticky-top" id="mainNav" style="background-color: var(--warm-white);">
         <div class="container py-2">
-            <i class="fa-solid fa-leaf fa-2x"></i>
+            <i class="fa-solid fa-leaf fa-2x navbar-leaf me-3"></i>
             <a class="navbar-brand display-font fs-3" href="#hero" style="letter-spacing:0.1em;">隱舍</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
                 <span class="navbar-toggler-icon"></span>
@@ -198,8 +235,8 @@
             <div class="collapse navbar-collapse justify-content-end" id="navMenu">
                 <ul class="navbar-nav gap-lg-4 text-center">
                     <li class="nav-item"><a class="nav-link" href="#s04-story-manifesto">品牌故事</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#menu">菜單</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#seasonal">季節限定</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#featured">菜單</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#sourcing">品牌特色</a></li>
                     <li class="nav-item"><a class="nav-link" href="#locator">門市</a></li>
                     <li class="nav-item"><a class="btn btn-terracotta btn-sm" href="#order">線上訂購</a></li>
                 </ul>
@@ -247,10 +284,15 @@
         </div>
 
         <!-- 文字內容 -->
-        <div class="container position-relative text-center d-flex flex-column justify-content-center align-items-center"
-            style="min-height: 90vh; z-index: 2;">
+        <div class="container position-relative text-center d-flex flex-column justify-content-center align-items-center hero-frame"
+            style="min-height: 90vh; z-index: 2; max-width: 640px;">
+            <span class="corner-bl"></span>
+            <span class="corner-br"></span>
             <p class="eyebrow mb-3" style="color: var(--warm-white);">HIDDEN HOUSE · 慢下來的時刻</p>
-            <h1 class="display-1 display-font mb-4" style="color: var(--warm-white);">隱　舍</h1>
+            <h1 class="display-1 display-font mb-4 wow animate__fadeIn" style="color: var(--warm-white);"
+                data-wow-duration="3s" data-wow-delay="0s" data-wow-iteration="1">隱　</h1>
+            <h1 class="display-1 display-font mb-4 wow animate__fadeIn" style="color: var(--warm-white);"
+                data-wow-duration="3s" data-wow-delay="0.5s" data-wow-iteration="1">舍</h1>
             <p class="fs-5 mb-5 mx-auto" style="max-width: 560px; color: var(--oat-white);">
                 在城市的縫隙裡，留一盞燈、一杯茶、一段留白。
             </p>
@@ -261,6 +303,11 @@
             </div>
         </div>
     </header>
+    <div class="wave-divider" style="background-color: var(--oat-white);">
+        <svg viewBox="0 0 1200 60" preserveAspectRatio="none">
+            <path d="M0,30 C300,60 900,0 1200,30 L1200,60 L0,60 Z" fill="var(--warm-white)" opacity="1"></path>
+        </svg>
+    </div>
 
     <!-- ========== 3. 數據 ========== -->
     <section id="s03">
@@ -269,7 +316,7 @@
                 style="background-image: url(images/tea7.jpg); background-position:center center; background-size:cover; min-height: 420px; background-color: var(--matcha-green);">
                 <!-- 建議放茶葉沖泡、店內一角等有生活感的照片 -->
             </div>
-            <div class="col-md-7 py-5 px-4 px-md-5 d-flex flex-column justify-content-center text-center bg-soft">
+            <div class="col-md-7 py-5 px-4 px-md-5 d-flex flex-column justify-content-center text-center">
                 <p class="eyebrow mb-2">SINCE 2025</p>
                 <div class="display-5 display-font mb-1">隱舍，<span class="wow animate__fadeInUp" data-wow-duration="2s"
                         data-wow-delay="0s" data-wow-iteration="1" style="color: var(--terracotta);">從一杯茶開始</span></div>
@@ -305,16 +352,21 @@
             </div>
         </div>
     </section>
+    <div class="wave-divider" style="background-color: var(--warm-white);">
+        <svg viewBox="0 0 1200 60" preserveAspectRatio="none">
+            <path d="M0,30 C300,60 900,0 1200,30 L1200,60 L0,60 Z" fill="var(--oat-white)" opacity="1"></path>
+        </svg>
+    </div>
 
     <!-- ========== 4. BRAND STORY + MANIFESTO 品牌理念與宣言 ========== -->
-    <section id="s04-story-manifesto" class="section-pad section-block">
+    <section id="s04-story-manifesto" class="section-pad section-block bg-soft">
         <div class="container">
             <div class="row g-5 align-items-center">
 
                 <!-- 左側：品牌理念 + 宣言 -->
-                <div class="col-lg-6 order-2 order-lg-1 wow animate__fadeInLeft" data-wow-duration="1s"
+                <div class="col-lg-6 order-2 order-lg-1 wow animate__fadeInLeft" data-wow-duration="1.5s"
                     data-wow-delay="0s" data-wow-iteration="1">
-                    <p class="eyebrow mb-2">BRAND STORY</p>
+                    <p class="eyebrow eyebrow-start mb-2">BRAND STORY</p>
                     <h2 class="display-5 mb-4">關於隱舍</h2>
                     <p class="fs-5 mb-5" style="color: var(--graphite-grey); line-height: 2;">
                         隱舍成立於一個想從喧囂中退一步的念頭。我們相信一杯好飲品，
@@ -330,8 +382,8 @@
                 </div>
 
                 <!-- 右側：直式圖片 -->
-                <div class="col-lg-6 order-1 order-lg-2 wow animate__fadeInRight" data-wow-duration="2s"
-                    data-wow-delay="0s" data-wow-iteration="1">
+                <div class="col-lg-6 order-1 order-lg-2 wow animate__fadeInRight" data-wow-duration="1s"
+                    data-wow-delay="0.5s" data-wow-iteration="1">
                     <div class="portrait-frame">
                         <div class="portrait-image" style="background-image: url(images/tea2.jpg);"></div>
                     </div>
@@ -352,8 +404,8 @@
                 <div class="col-md-4">
                     <div class="card-brand p-4 h-100 text-center wow animate__fadeInUp" data-wow-duration="1.5s"
                         data-wow-delay="0s" data-wow-iteration="1" style="background-color: var(--misty-pink);">
-                        <div class="mb-3"
-                            style="height:540px; border-radius:4px; background-image: url(images/spot1.png); background-size: cover; background-position:center center;">
+                        <div class="mb-3 s05-img"
+                            style="height:480px; border-radius:4px; background-image: url(images/spot1-1.png);">
                         </div>
                         <h4 class="mb-2">霧粉烏龍拿鐵</h4>
                         <p style="color: var(--graphite-grey);">烏龍茶湯與鮮奶的柔軟相遇</p>
@@ -361,9 +413,9 @@
                 </div>
                 <div class="col-md-4">
                     <div class="card-brand p-4 h-100 text-center wow animate__fadeInDown" data-wow-duration="1.5s"
-                        data-wow-delay="0s" data-wow-iteration="1" style="background-color: var(--sage-green);">
-                        <div class="mb-3"
-                            style="height:540px; border-radius:4px;background-image: url(images/spot2.png); background-size: cover; background-position:center center;">
+                        data-wow-delay="1s" data-wow-iteration="1" style="background-color: var(--sage-green);">
+                        <div class="mb-3 s05-img"
+                            style="height:480px; border-radius:4px;background-image: url(images/spot2.png);">
                         </div>
                         <h4 class="mb-2">鼠尾草氣泡青</h4>
                         <p style="color: var(--graphite-grey);">清爽草本香氣，微氣泡口感</p>
@@ -371,9 +423,9 @@
                 </div>
                 <div class="col-md-4">
                     <div class="card-brand p-4 h-100 text-center  wow animate__fadeInUp" data-wow-duration="1.5s"
-                        data-wow-delay="0s" data-wow-iteration="1" style="background-color: var(--honey-yellow);">
-                        <div class="mb-3"
-                            style="height:540px; border-radius:4px;background-image: url(images/spot3.png); background-size: cover; background-position:center center;">
+                        data-wow-delay="2s" data-wow-iteration="1" style="background-color: var(--honey-yellow);">
+                        <div class="mb-3 s05-img"
+                            style="height:480px; border-radius:4px;background-image: url(images/spot3.png);">
                         </div>
                         <h4 class="mb-2">蜜柑焙茶</h4>
                         <p style="color: var(--graphite-grey);">焙火香氣搭配蜜柑果香</p>
@@ -390,10 +442,13 @@
                 <p class="eyebrow mb-2">MENU</p>
                 <h2 class="display-5">完整菜單</h2>
             </div>
-            <div class="row g-5 wow animate__fadeIn" data-wow-duration="2s" data-wow-delay="0s" data-wow-iteration="1">
+            <div class="row g-5">
 
-                <div class="col-md-3">
-                    <h5 class="display-font border-bottom pb-2 mb-3">茶飲</h5>
+                <div class="col-md-3 wow animate__fadeInLeft" data-wow-duration="1s" data-wow-delay="1.5s"
+                    data-wow-iteration="1">
+                    <h5 class="display-font border-bottom pb-2 mb-3">
+                        <i class="fa-solid fa-leaf me-2" style="color: var(--matcha-green);"></i>茶飲
+                    </h5>
                     <div class="d-flex justify-content-between mb-2"><span>清香烏龍</span><span>$65</span></div>
                     <div class="d-flex justify-content-between mb-2"><span>蜜香紅茶</span><span>$65</span></div>
                     <div class="d-flex justify-content-between mb-2"><span>四季青茶</span><span>$60</span></div>
@@ -402,8 +457,11 @@
                     <div class="d-flex justify-content-between mb-2"><span>焙茶拿鐵</span><span>$85</span></div>
                 </div>
 
-                <div class="col-md-3">
-                    <h5 class="display-font border-bottom pb-2 mb-3">咖啡</h5>
+                <div class="col-md-3 wow animate__fadeInLeft" data-wow-duration="1s" data-wow-delay="1s"
+                    data-wow-iteration="1">
+                    <h5 class="display-font border-bottom pb-2 mb-3">
+                        <i class="fa-solid fa-mug-hot me-2" style="color: var(--caramel-brown);"></i>咖啡
+                    </h5>
                     <div class="d-flex justify-content-between mb-2"><span>手沖單品</span><span>$120</span></div>
                     <div class="d-flex justify-content-between mb-2"><span>燕麥拿鐵</span><span>$95</span></div>
                     <div class="d-flex justify-content-between mb-2"><span>美式咖啡</span><span>$75</span></div>
@@ -412,8 +470,11 @@
                     <div class="d-flex justify-content-between mb-2"><span>肉桂卡布奇諾</span><span>$100</span></div>
                 </div>
 
-                <div class="col-md-3">
-                    <h5 class="display-font border-bottom pb-2 mb-3">氣泡飲</h5>
+                <div class="col-md-3 wow animate__fadeInLeft" data-wow-duration="1s" data-wow-delay="0.5s"
+                    data-wow-iteration="1">
+                    <h5 class="display-font border-bottom pb-2 mb-3">
+                        <i class="fa-solid fa-glass-water me-2" style="color: var(--pine-teal);"></i>氣泡飲
+                    </h5>
                     <div class="d-flex justify-content-between mb-2"><span>草本氣泡</span><span>$85</span></div>
                     <div class="d-flex justify-content-between mb-2"><span>果香氣泡</span><span>$85</span></div>
                     <div class="d-flex justify-content-between mb-2"><span>青梅氣泡</span><span>$90</span></div>
@@ -422,97 +483,225 @@
                     <div class="d-flex justify-content-between mb-2"><span>鼠尾草氣泡青</span><span>$100</span></div>
                 </div>
 
-                <div class="col-md-3">
-                    <h5 class="display-font border-bottom pb-2 mb-3">季節限定</h5>
+                <div class="col-md-3 wow animate__fadeInLeft" data-wow-duration="1s" data-wow-delay="0s"
+                    data-wow-iteration="1">
+                    <h5 class="display-font border-bottom pb-2 mb-3">
+                        <i class="fa-solid fa-snowflake me-2" style="color: var(--terracotta);"></i>季節限定
+                    </h5>
                     <div class="d-flex justify-content-between mb-2"><span>立冬・薑烤紅茶</span><span>$95</span></div>
                     <div class="d-flex justify-content-between mb-2"><span>小滿・青梅氣泡</span><span>$90</span></div>
                     <div class="d-flex justify-content-between mb-2"><span>白露・桂花烏龍拿鐵</span><span>$100</span></div>
-                    <div class="d-flex justify-content-between mb-2"><span>詳見季節限定專區</span><span>—</span></div>
                 </div>
 
             </div>
         </div>
     </section>
 
-    <!-- ========== 7. SEASONAL SERIES 季節限定系列 ========== -->
-    <section id="seasonal" class="section-pad section-block">
+    <!-- ========== 7. VIP 會員制度 ========== -->
+    <section id="vip" class="section-pad section-block">
         <div class="container">
             <div class="text-center mb-5">
-                <p class="eyebrow mb-2">SEASONAL</p>
-                <h2 class="display-5">節氣限定</h2>
+                <p class="eyebrow mb-2">VIP</p>
+                <h2 class="display-5">成為茶友</h2>
                 <p class="fs-6 mx-auto mt-3" style="max-width: 480px; color: var(--graphite-grey);">
-                    跟著節氣走的味道，過了這個季節，就要等明年了。
+                    累積的不只是點數，是你跟隱舍一起慢下來的時間。
                 </p>
             </div>
 
             <div class="row g-4">
 
-                <div class="col-md-4 wow animate__fadeInLeft" data-wow-duration="2.5s" data-wow-delay="0s"
-                    data-wow-iteration="1">
-                    <div class="s07-card" style="background-color: var(--pine-teal); color: var(--warm-white);">
-                        <div class="s07-icon" style="background: rgba(250,247,242,0.15); color: var(--warm-white);">
-                            <i class="fa-solid fa-fire"></i>
-                        </div>
-                        <p class="s07-term">立冬</p>
-                        <h4 class="display-font mb-2">薑烤紅茶</h4>
-                        <p class="s07-desc" style="color: rgba(250,247,242,0.85);">
-                            炙烤老薑的辛香，融進紅茶的醇厚，喝完手心是暖的。
-                        </p>
-                        <div class="s07-footer" style="border-color: rgba(250,247,242,0.3);">
-                            <span><i class="fa-solid fa-mug-hot me-1"></i>熱飲限定</span>
-                            <span class="s07-price">$95</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-4 wow animate__fadeInLeft" data-wow-duration="2s" data-wow-delay="0s"
+                <div class="col-md-4 wow animate__fadeInUp" data-wow-duration="1s" data-wow-delay="0s"
                     data-wow-iteration="1">
                     <div class="s07-card" style="background-color: var(--lotus-pink); color: var(--ink-black);">
                         <div class="s07-icon" style="background: rgba(46,42,38,0.08); color: var(--caramel-brown);">
-                            <i class="fa-solid fa-seedling"></i>
+                            <i class="fa-solid fa-leaf"></i>
                         </div>
-                        <p class="s07-term" style="color: var(--caramel-brown);">小滿</p>
-                        <h4 class="display-font mb-2">青梅氣泡</h4>
+                        <p class="s07-term" style="color: var(--caramel-brown);">初階</p>
+                        <h4 class="display-font mb-2">小葉芽</h4>
                         <p class="s07-desc" style="color: var(--graphite-grey);">
-                            初夏青梅醃漬的酸甜，配上氣泡的輕盈，喝一口就清醒。
+                            註冊即自動加入，消費累積點數，生日當月享專屬折扣。
                         </p>
                         <div class="s07-footer" style="border-color: rgba(46,42,38,0.15);">
-                            <span><i class="fa-solid fa-glass-water me-1"></i>冰飲限定</span>
-                            <span class="s07-price">$90</span>
+                            <span><i class="fa-solid fa-gift me-1"></i>生日禮</span>
+                            <span class="s07-price">消費打八折</span>
                         </div>
                     </div>
                 </div>
 
-                <div class="col-md-4 wow animate__fadeInLeft" data-wow-duration="1.5s" data-wow-delay="0s"
+                <div class="col-md-4 wow animate__fadeInUp" data-wow-duration="1s" data-wow-delay="0.5s"
+                    data-wow-iteration="1">
+                    <div class="s07-card" style="background-color: var(--pine-teal); color: var(--warm-white);">
+                        <div class="s07-icon" style="background: rgba(250,247,242,0.15); color: var(--warm-white);">
+                            <i class="fa-solid fa-mug-hot"></i>
+                        </div>
+                        <p class="s07-term">進階</p>
+                        <h4 class="display-font mb-2">茶舍客人</h4>
+                        <p class="s07-desc" style="color: rgba(250,247,242,0.85);">
+                            月消費滿額自動升級，享一次買一送一優惠，優先預約新品試飲。
+                        </p>
+                        <div class="s07-footer" style="border-color: rgba(250,247,242,0.3);">
+                            <span><i class="fa-solid fa-star me-1"></i>每月招待</span>
+                            <span class="s07-price">滿額升級</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 wow animate__fadeInUp" data-wow-duration="1s" data-wow-delay="1s"
                     data-wow-iteration="1">
                     <div class="s07-card"
                         style="background-color: var(--oat-white); color: var(--caramel-brown); border: 1px solid rgba(176,137,104,0.25);">
                         <div class="s07-icon" style="background: rgba(176,137,104,0.12); color: var(--caramel-brown);">
-                            <i class="fa-solid fa-sun"></i>
+                            <i class="fa-solid fa-crown"></i>
                         </div>
-                        <p class="s07-term">白露</p>
-                        <h4 class="display-font mb-2">桂花烏龍拿鐵</h4>
+                        <p class="s07-term">頂級</p>
+                        <h4 class="display-font mb-2">隱舍之友</h4>
                         <p class="s07-desc" style="color: var(--graphite-grey);">
-                            秋日桂花香氣裹著烏龍與鮮奶，尾韻回甘，像午後的一場小睡。
+                            享季節限定搶先品飲、專屬茶會邀約與客製化茶單服務，生日時也會有精緻小禮物。
                         </p>
                         <div class="s07-footer" style="border-color: rgba(176,137,104,0.25);">
-                            <span><i class="fa-solid fa-mug-saucer me-1"></i>冷熱皆宜</span>
-                            <span class="s07-price">$100</span>
+                            <span><i class="fa-solid fa-heart me-1"></i>專屬邀約</span>
+                            <span class="s07-price">會員累積達時長</span>
                         </div>
                     </div>
                 </div>
 
             </div>
+
+            <div class="text-center mt-5 wow animate__fadeIn" data-wow-duration="1s" data-wow-delay="1.2s"
+                data-wow-iteration="1">
+                <a href="#" class="btn btn-terracotta" data-bs-toggle="modal" data-bs-target="#registerModal">
+                    <i class="fa-solid fa-user-plus me-2"></i>立即註冊會員帳號
+                </a>
+            </div>
+
+
         </div>
     </section>
+    <!-- 註冊 Modal -->
+    <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true"
+        data-bs-backdrop="static" data-bs-keyboard="false">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content s14-modal-content">
+
+                <div class="modal-header s14-modal-header">
+                    <h5 class="modal-title display-font" id="registerModalLabel">
+                        <i class="fa-solid fa-user-plus me-2" style="color: var(--terracotta);"></i>加入隱舍會員
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+                <div class="modal-body p-0">
+                    <div class="row g-0">
+
+                        <!-- 左側：加入注意事項 -->
+                        <div class="col-md-5 p-4"
+                            style="background-color: var(--oat-white); border-right: 1px solid rgba(74,71,68,0.1);">
+                            <p class="eyebrow eyebrow-start mb-3">BEFORE YOU JOIN</p>
+                            <h6 class="display-font mb-3">加入前，先說幾件事</h6>
+                            <ul class="list-unstyled"
+                                style="font-size: 0.9rem; color: var(--graphite-grey); line-height: 1.9;">
+                                <li class="mb-3">
+                                    <i class="fa-solid fa-leaf me-2" style="color: var(--matcha-green);"></i>
+                                    會員帳號僅限本人使用，請填寫真實姓名與聯絡資訊，以利核對點數與生日禮發放。
+                                </li>
+                                <li class="mb-3">
+                                    <i class="fa-solid fa-leaf me-2" style="color: var(--matcha-green);"></i>
+                                    密碼建議使用英數混合，我們不會以任何形式向您索取密碼，請妥善保管帳號資訊。
+                                </li>
+                                <li class="mb-3">
+                                    <i class="fa-solid fa-leaf me-2" style="color: var(--matcha-green);"></i>
+                                    會員等級依累積消費金額自動升級，詳細規則請參考本頁「VIP 會員制度」說明。
+                                </li>
+                                <li class="mb-3">
+                                    <i class="fa-solid fa-leaf me-2" style="color: var(--matcha-green);"></i>
+                                    您的個人資料僅用於會員服務與優惠通知，不會提供給第三方作商業用途。
+                                </li>
+                                <li class="mb-0">
+                                    <i class="fa-solid fa-leaf me-2" style="color: var(--matcha-green);"></i>
+                                    完成註冊即表示您同意隱舍的服務條款與隱私權政策。
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- 右側：填寫資料 -->
+                        <div class="col-md-7 p-4">
+                            <form id="registerForm">
+
+                                <div class="mb-3">
+                                    <label for="regAccount" class="form-label s14-label">帳號</label>
+                                    <input type="text" class="form-control s14-input" id="regAccount"
+                                        placeholder="請設定帳號" required>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-6 mb-3">
+                                        <label for="regPassword" class="form-label s14-label">密碼</label>
+                                        <input type="password" class="form-control s14-input" id="regPassword"
+                                            placeholder="請輸入密碼" required>
+                                    </div>
+                                    <div class="col-6 mb-3">
+                                        <label for="regPasswordConfirm" class="form-label s14-label">確認密碼</label>
+                                        <input type="password" class="form-control s14-input" id="regPasswordConfirm"
+                                            placeholder="請再次輸入密碼" required>
+                                        <div class="invalid-feedback" id="regPasswordFeedback">
+                                            密碼不一致，請重新確認
+                                        </div>
+                                        <div class="valid-feedback" id="regPasswordSuccess">
+                                            密碼一致
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="regName" class="form-label s14-label">本人姓名</label>
+                                    <input type="text" class="form-control s14-input" id="regName" placeholder="請輸入真實姓名"
+                                        required>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-6 mb-3">
+                                        <label for="regPhone" class="form-label s14-label">電話</label>
+                                        <input type="tel" class="form-control s14-input" id="regPhone"
+                                            placeholder="請輸入聯絡電話" required>
+                                    </div>
+                                    <div class="col-6 mb-3">
+                                        <label for="regEmail" class="form-label s14-label">信箱</label>
+                                        <input type="email" class="form-control s14-input" id="regEmail"
+                                            placeholder="請輸入電子信箱" required>
+                                    </div>
+                                </div>
+
+                                <div class="form-check mt-4">
+                                    <input class="form-check-input" type="checkbox" id="regAgree" required>
+                                    <label class="form-check-label" for="regAgree"
+                                        style="font-size: 0.9rem; color: var(--graphite-grey);">
+                                        我已閱讀並同意左側加入注意事項
+                                    </label>
+                                </div>
+
+                            </form>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="modal-footer s14-modal-footer">
+                    <button type="button" class="btn btn-outline-brand" data-bs-dismiss="modal">取消</button>
+                    <button type="submit" form="registerForm" class="btn btn-terracotta">完成註冊</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
 
     <!-- ========== 8. TEA GARDEN TIMELINE 選材故事：從北到南的茶園 ========== -->
-    <section id="sourcing" class="section-pad bg-soft">
+    <section id="sourcing" class="section-pad bg-soft sourcing-fixed-bg">
         <div class="container">
             <div class="text-center mb-5">
                 <p class="eyebrow mb-2">SOURCING</p>
                 <h2 class="display-5 mb-3">從北到南，一路找茶</h2>
-                <p class="fs-5 mx-auto" style="max-width: 600px; color: var(--graphite-grey);">
+                <p class="fs-5 mx-auto wow animate__fadeInUp" data-wow-duration="2s" data-wow-delay="0s"
+                    data-wow-iteration="1" style="max-width: 600px; color: var(--graphite-grey);">
                     我們親自走訪茶園，只選擇友善耕作的茶葉，
                     讓每一杯飲品都保有土地原本的氣味。
                 </p>
@@ -521,9 +710,9 @@
             <div class="s08-timeline">
 
                 <div class="row align-items-center s08-timeline-point">
-                    <div class="col-md-6 mt-3 wow animate__fadeInLeft" data-wow-duration="2s" data-wow-delay="0s"
-                        data-wow-iteration="1">
-                        <div class="s08-text">
+                    <div class="col-md-6 mt-3">
+                        <div class="s08-text wow animate__fadeInLeft" data-wow-duration="1.5s" data-wow-delay="0s"
+                            data-wow-iteration="1">
                             <p class="s08-step">01</p>
                             <div class="h2 display-font s08-title">坪林・文山包種</div>
                             <p class="h6 s08-sub mt-3">新北，海拔約 400 公尺</p>
@@ -531,14 +720,14 @@
                                 喝起來像雨後的空氣，清而不澀。</p>
                         </div>
                     </div>
-                    <div class="col-md-6 wow animate__fadeInRight" data-wow-duration="2s" data-wow-delay="0s"
+                    <div class="col-md-6 wow animate__fadeInRight" data-wow-duration="1.5s" data-wow-delay="0s"
                         data-wow-iteration="1">
                         <div class="s08-img" style="background-image:url(images/mountain1.jpg);"></div>
                     </div>
                 </div>
 
                 <div class="row align-items-center flex-row-reverse s08-timeline-point">
-                    <div class="col-md-6 mt-3 wow animate__fadeInRight" data-wow-duration="2s" data-wow-delay="0s"
+                    <div class="col-md-6 mt-3 wow animate__fadeInRight" data-wow-duration="1.5s" data-wow-delay="0s"
                         data-wow-iteration="1">
                         <div class="s08-text text-md-end">
                             <p class="s08-step">02</p>
@@ -548,14 +737,14 @@
                                 是隱舍最早合作的第一片土地。</p>
                         </div>
                     </div>
-                    <div class="col-md-6 wow animate__fadeInLeft" data-wow-duration="2s" data-wow-delay="0s"
+                    <div class="col-md-6 wow animate__fadeInLeft" data-wow-duration="1.5s" data-wow-delay="0s"
                         data-wow-iteration="1">
                         <div class="s08-img" style="background-image:url(images/mountain2.jpg);"></div>
                     </div>
                 </div>
 
                 <div class="row align-items-center s08-timeline-point">
-                    <div class="col-md-6 mt-3 wow animate__fadeInLeft" data-wow-duration="2s" data-wow-delay="0s"
+                    <div class="col-md-6 mt-3 wow animate__fadeInLeft" data-wow-duration="1.5s" data-wow-delay="0s"
                         data-wow-iteration="1">
                         <div class="s08-text">
                             <p class="s08-step">03</p>
@@ -565,14 +754,14 @@
                                 是隱舍焙茶系列的靈魂。</p>
                         </div>
                     </div>
-                    <div class="col-md-6 wow animate__fadeInRight" data-wow-duration="2s" data-wow-delay="0s"
+                    <div class="col-md-6 wow animate__fadeInRight" data-wow-duration="1.5s" data-wow-delay="0s"
                         data-wow-iteration="1">
                         <div class="s08-img" style="background-image:url(images/mountain3.jpg);"></div>
                     </div>
                 </div>
 
                 <div class="row align-items-center flex-row-reverse s08-timeline-point">
-                    <div class="col-md-6 mt-3 wow animate__fadeInRight" data-wow-duration="2s" data-wow-delay="0s"
+                    <div class="col-md-6 mt-3 wow animate__fadeInRight" data-wow-duration="1.5s" data-wow-delay="0s"
                         data-wow-iteration="1">
                         <div class="s08-text text-md-end">
                             <p class="s08-step">04</p>
@@ -582,14 +771,14 @@
                                 是店內招牌拿鐵的基底。</p>
                         </div>
                     </div>
-                    <div class="col-md-6 wow animate__fadeInLeft" data-wow-duration="2s" data-wow-delay="0s"
+                    <div class="col-md-6 wow animate__fadeInLeft" data-wow-duration="1.5s" data-wow-delay="0s"
                         data-wow-iteration="1">
                         <div class="s08-img" style="background-image:url(images/mountain4.jpg);"></div>
                     </div>
                 </div>
 
                 <div class="row align-items-center s08-timeline-point s08-last">
-                    <div class="col-md-6 mt-3 wow animate__fadeInLeft" data-wow-duration="2s" data-wow-delay="0s"
+                    <div class="col-md-6 mt-3 wow animate__fadeInLeft" data-wow-duration="1.5s" data-wow-delay="0s"
                         data-wow-iteration="1">
                         <div class="s08-text">
                             <p class="s08-step">05</p>
@@ -599,7 +788,7 @@
                                 尾韻帶蜜香回甘，是這趟旅程的最後一站，也是最溫暖的一站。</p>
                         </div>
                     </div>
-                    <div class="col-md-6 wow animate__fadeInRight" data-wow-duration="2s" data-wow-delay="0s"
+                    <div class="col-md-6 wow animate__fadeInRight" data-wow-duration="1.5s" data-wow-delay="0s"
                         data-wow-iteration="1">
                         <div class="s08-img" style="background-image:url(images/mountain5.jpg);"></div>
                     </div>
@@ -612,20 +801,27 @@
     <!-- ========== 9. FOUNDER'S NOTE 主理人的話 ========== -->
     <section class="section-pad">
         <div class="container">
-            <div class="row justify-content-center text-center wow animate__fadeInUp" data-wow-duration="3s"
-                data-wow-delay="0s" data-wow-iteration="1">
+            <div class="row justify-content-center text-center">
                 <div class="col-lg-7">
-                    <div class="rounded-circle mx-auto mb-4"
+                    <div class="rounded-circle mx-auto mb-4 wow animate__fadeInUp" data-wow-duration="1s"
+                        data-wow-delay="0s" data-wow-iteration="1"
                         style="width:120px; height:120px; background-image: url(images/boss.png); background-size: cover;">
                     </div>
-                    <p class="fs-5 fst-italic mb-3 fw-bolder" style="color: var(--graphite-grey);">
+                    <p class="fs-5 fst-italic mb-3 fw-bolder wow animate__fadeInDown" data-wow-duration="1s"
+                        data-wow-delay="1s" data-wow-iteration="1" style="color: var(--graphite-grey);">
                         「開這間店，是想留一個地方，讓忙碌的人可以慢慢喝一杯茶。」
                     </p>
-                    <p class="eyebrow">主理人・林知</p>
+                    <p class="eyebrow wow animate__fadeInDown" data-wow-duration="1s" data-wow-delay="1.5s"
+                        data-wow-iteration="1">主理人・林知</p>
                 </div>
             </div>
         </div>
     </section>
+    <div class="wave-divider" style="background-color: var(--warm-white);">
+        <svg viewBox="0 0 1200 60" preserveAspectRatio="none">
+            <path d="M0,30 C300,60 900,0 1200,30 L1200,60 L0,60 Z" fill="var(--oat-white)" opacity="1"></path>
+        </svg>
+    </div>
 
     <!-- ========== 10. TESTIMONIALS 顧客故事 ========== -->
     <section class="section-pad bg-soft">
@@ -635,25 +831,26 @@
                 <h2 class="display-5">他們這麼說</h2>
             </div>
             <div class="row g-4">
-                <div class="col-md-4 wow animate__fadeInLeft" data-wow-duration="2s" data-wow-delay="0s"
-                    data-wow-iteration="1">
-                    <div class="card-brand p-4 h-100">
-                        <p style="color: var(--graphite-grey);">「像是躲進城市裡的一片森林。」</p>
-                        <p class="eyebrow mt-3 mb-0">— @tea.lover</p>
-                    </div>
-                </div>
-                <div class="col-md-4 wow animate__fadeInLeft" data-wow-duration="1.5s" data-wow-delay="0s"
-                    data-wow-iteration="1">
-                    <div class="card-brand p-4 h-100">
-                        <p style="color: var(--graphite-grey);">「每次來都覺得心跳慢下來了。」</p>
-                        <p class="eyebrow mt-3 mb-0">— @slowdays</p>
-                    </div>
-                </div>
                 <div class="col-md-4 wow animate__fadeInLeft" data-wow-duration="1s" data-wow-delay="0s"
                     data-wow-iteration="1">
-                    <div class="card-brand p-4 h-100">
-                        <p style="color: var(--graphite-grey);">「文字與茶香一樣值得回味。」</p>
-                        <p class="eyebrow mt-3 mb-0">— @paper.and.tea</p>
+                    <div class="card-brand p-4 h-100 d-flex flex-column">
+                        <p style="color: var(--graphite-grey);">「安靜得剛剛好。」</p>
+                        <p class="eyebroworigin mb-0 mt-auto">— @tea.lover</p>
+                    </div>
+                </div>
+                <div class="col-md-4 wow animate__fadeInLeft" data-wow-duration="1s" data-wow-delay="0.5s"
+                    data-wow-iteration="1">
+                    <div class="card-brand p-4 h-100 d-flex flex-column">
+                        <p style="color: var(--graphite-grey);">「每次心情亂的時候就會想來坐一下，喝完好像什麼都能重新開始。」</p>
+                        <p class="eyebroworigin mb-0 mt-auto">— @slowdays</p>
+                    </div>
+                </div>
+                <div class="col-md-4 wow animate__fadeInLeft" data-wow-duration="1s" data-wow-delay="1s"
+                    data-wow-iteration="1">
+                    <div class="card-brand p-4 h-100 d-flex flex-column">
+                        <p style="color: var(--graphite-grey);">
+                            「第一次來是雨天，坐在窗邊看店員沖茶，那個畫面到現在都還記得。後來變成習慣，一個禮拜總要來個一兩次，點的東西也漸漸從嘗鮮變成固定班底。」</p>
+                        <p class="eyebroworigin mb-0 mt-auto">— @paper.and.tea</p>
                     </div>
                 </div>
             </div>
@@ -664,13 +861,17 @@
     <section id="locator" class="section-pad section-block">
         <div class="container">
             <div class="row g-5 align-items-center">
-                <div class="col-lg-6 wow animate__fadeInDown" data-wow-duration="2s" data-wow-delay="0s"
-                    data-wow-iteration="1">
-                    <p class="eyebrow mb-2">VISIT US</p>
-                    <h2 class="display-5 mb-4">門市資訊</h2>
-                    <p class="mb-2"><i class="fa-solid fa-location-dot me-2"></i>台中市西屯區協和里工業區一路100號</p>
-                    <p class="mb-2"><i class="fa-solid fa-clock me-2"></i>週一至週日 08:00–17:00</p>
-                    <p class="mb-0"><i class="fa-solid fa-phone me-2"></i>04-2359-2181</p>
+                <div class="col-lg-6">
+                    <p class="eyebrow eyebrow-start mb-2 wow animate__fadeInDown" data-wow-duration="1.5s"
+                        data-wow-delay="0s" data-wow-iteration="1">VISIT US</p>
+                    <h2 class="display-5 mb-4 wow animate__fadeInDown" data-wow-duration="1.5s" data-wow-delay="0s"
+                        data-wow-iteration="1">門市資訊</h2>
+                    <p class="mb-2 wow animate__fadeInLeft" data-wow-duration="2s" data-wow-delay="0.5s"
+                        data-wow-iteration="1"><i class="fa-solid fa-location-dot me-2"></i>台中市西屯區協和里工業區一路100號</p>
+                    <p class="mb-2 wow animate__fadeInLeft" data-wow-duration="2s" data-wow-delay="0.7s"
+                        data-wow-iteration="1"><i class="fa-solid fa-clock me-2"></i>週一至週日 08:00–17:00</p>
+                    <p class="mb-0 wow animate__fadeInLeft" data-wow-duration="2s" data-wow-delay="0.9s"
+                        data-wow-iteration="1"><i class="fa-solid fa-phone me-2"></i>04-2359-2181</p>
                 </div>
                 <div class="col-lg-6 wow animate__fadeIn" data-wow-duration="2s" data-wow-delay="0s"
                     data-wow-iteration="1">
@@ -690,17 +891,18 @@
         <div class="container">
             <p class="eyebrow mb-4">FOLLOW US</p>
             <div class="d-flex justify-content-center gap-4 fs-3">
-                <a href="#" style="color: var(--ink-black);"><i class="fa-brands fa-instagram wow animate__bounce"
-                        aria-label="Instagram" data-wow-duration="1s" data-wow-delay="0s"
-                        data-wow-iteration="1"></i></a>
-                <a href="#" style="color: var(--ink-black);"><i class="fa-brands fa-facebook wow animate__bounce"
-                        aria-label="Facebook" data-wow-duration="1s" data-wow-delay="0.25s"
-                        data-wow-iteration="1"></i></a>
-                <a href="#" style="color: var(--ink-black);"><i class="fa-brands fa-threads wow animate__bounce"
-                        aria-label="Threads" data-wow-duration="1s" data-wow-delay="0.5s"
-                        data-wow-iteration="1"></i></a>
-                <a href="#" style="color: var(--ink-black);"><i class="fa-brands fa-line wow animate__bounce"
-                        aria-label="Line" data-wow-duration="1s" data-wow-delay="0.75s" data-wow-iteration="1"></i></a>
+                <a href="#" style="color: var(--ink-black);" aria-label="Instagram"><i
+                        class="fa-brands fa-instagram wow animate__bounce" data-wow-duration="1s" data-wow-delay="0s"
+                        data-wow-iteration="2"></i></a>
+                <a href="#" style="color: var(--ink-black);" aria-label="Facebook"><i
+                        class="fa-brands fa-facebook wow animate__bounce" data-wow-duration="1s" data-wow-delay="0.25s"
+                        data-wow-iteration="2"></i></a>
+                <a href="#" style="color: var(--ink-black);" aria-label="Threads"><i
+                        class="fa-brands fa-threads wow animate__bounce" data-wow-duration="1s" data-wow-delay="0.5s"
+                        data-wow-iteration="2"></i></a>
+                <a href="#" style="color: var(--ink-black);" aria-label="Line"><i
+                        class="fa-brands fa-line wow animate__bounce" data-wow-duration="1s" data-wow-delay="0.75s"
+                        data-wow-iteration="2"></i></a>
             </div>
         </div>
     </section>
@@ -712,7 +914,7 @@
                 <p class="eyebrow mb-2">FAQ</p>
                 <h2 class="display-5">常見問題</h2>
             </div>
-            <div class="row justify-content-center wow animate__fadeInLeft" data-wow-duration="2s" data-wow-delay="0s"
+            <div class="row justify-content-center wow animate__fadeIn" data-wow-duration="2s" data-wow-delay="0s"
                 data-wow-iteration="1">
                 <div class="col-lg-8">
                     <div class="accordion" id="faqAccordion">
@@ -754,6 +956,11 @@
             </div>
         </div>
     </section>
+    <div class="wave-divider" style="background-color: var(--oat-white); transform: rotate(180deg);">
+        <svg viewBox="0 0 1200 60" preserveAspectRatio="none">
+            <path d="M0,30 C300,60 900,0 1200,30 L1200,60 L0,60 Z" fill="var(--warm-white)" opacity="1"></path>
+        </svg>
+    </div>
 
     <!-- ========== 14. ONLINE ORDER CTA 線上訂購（含模糊背景 + 訂購 Modal） ========== -->
     <section id="order" class="s14-order position-relative text-center section-block">
@@ -764,7 +971,7 @@
             <p class="eyebrow mb-2" style="color: var(--oat-white);">ORDER ONLINE</p>
             <h2 class="display-5 mb-4" style="color: var(--warm-white);">現在就點一杯，慢下來</h2>
             <button type="button" class="btn btn-terracotta wow animate__zoomIn" data-bs-toggle="modal"
-                data-bs-target="#orderModal" data-wow-duration="1s" data-wow-delay="0s" data-wow-iteration="1">
+                data-bs-target="#orderModal" data-wow-duration="1s" data-wow-delay="0.5s" data-wow-iteration="1">
                 立即訂購
             </button>
         </div>
@@ -877,8 +1084,8 @@
                     <h6 class="mb-3" style="color: var(--warm-white);">探索</h6>
                     <ul class="list-unstyled">
                         <li><a href="#s04-story-manifesto" class="text-decoration-none">品牌故事</a></li>
-                        <li><a href="#menu" class="text-decoration-none">菜單</a></li>
-                        <li><a href="#seasonal" class="text-decoration-none">季節限定</a></li>
+                        <li><a href="#featured" class="text-decoration-none">菜單</a></li>
+                        <li><a href="#sourcing" class="text-decoration-none">品牌特色</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-2">
@@ -903,6 +1110,7 @@
     </footer>
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/wow.min.js"></script>
+    <!-- CounterUp -->
     <script>
         const counterUp = window.counterUp.default
 
@@ -932,14 +1140,61 @@
         const el04 = document.querySelector('.s03-counter-num04')
         IO.observe(el04)
     </script>
+    <!-- 頁面卷動偵測 -->
     <script>
         window.addEventListener('scroll', function () {
             document.getElementById('mainNav').classList.toggle('nav-scrolled', window.scrollY > 20);
+
+            const leaf = document.querySelector('.navbar-leaf');
+            leaf.classList.remove('is-swinging');
+            void leaf.offsetWidth;
+            leaf.classList.add('is-swinging');
         });
     </script>
+    <!-- 密碼確認 -->
     <script>
-        new WOW().init();
+        const regPassword = document.getElementById('regPassword');
+        const regPasswordConfirm = document.getElementById('regPasswordConfirm');
+        const registerForm = document.getElementById('registerForm');
+
+        function checkPasswordMatch() {
+            if (regPasswordConfirm.value === '') {
+                regPasswordConfirm.setCustomValidity('');
+                regPasswordConfirm.classList.remove('is-invalid', 'is-valid');
+                return;
+            }
+            if (regPasswordConfirm.value !== regPassword.value) {
+                regPasswordConfirm.setCustomValidity('密碼不一致');
+                regPasswordConfirm.classList.add('is-invalid');
+                regPasswordConfirm.classList.remove('is-valid');
+            } else {
+                regPasswordConfirm.setCustomValidity('');
+                regPasswordConfirm.classList.remove('is-invalid');
+                regPasswordConfirm.classList.add('is-valid');
+            }
+        }
+
+        regPassword.addEventListener('input', checkPasswordMatch);
+        regPasswordConfirm.addEventListener('input', checkPasswordMatch);
+
+        registerForm.addEventListener('submit', function (e) {
+            checkPasswordMatch();
+            if (!registerForm.checkValidity()) {
+                e.preventDefault();
+                e.stopPropagation();
+            }
+            registerForm.classList.add('was-validated');
+        });
     </script>
+    <!-- WOW -->
+    <script>
+        new WOW({
+            animateClass: 'animate__animated'
+        }).init();
+    </script>
+    <!-- <script>
+        new WOW().init();
+    </script> -->
 </body>
 
 </html>
