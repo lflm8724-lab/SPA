@@ -180,6 +180,28 @@ a:hover {
     border-radius: 2px;
 }
 
+.s03-progress-track {
+    width: 100%;
+    max-width: 90px;
+    height: 3px;
+    background: rgba(74, 71, 68, 0.12);
+    border-radius: 2px;
+    margin: 0.5rem auto 0;
+    overflow: hidden;
+}
+
+.s03-progress-fill {
+    height: 100%;
+    width: 0%;
+    background: var(--matcha-green);
+    border-radius: 2px;
+    transition: width 1.8s ease-out;
+}
+
+.s03-progress-fill.is-filled {
+    width: 100%;
+}
+
 /* ===== Section 7：節氣限定卡片 ===== */
 
 .s07-card {
@@ -507,4 +529,42 @@ a:hover {
 
 .navbar-leaf.is-swinging {
     animation: leaf-sway-settle 2s ease-out;
+}
+
+/* S4模糊進場 */
+@keyframes blur-in {
+    from {
+        opacity: 0;
+        filter: blur(8px);
+    }
+
+    to {
+        opacity: 1;
+        filter: blur(0);
+    }
+}
+
+.blur-in-on-scroll {
+    opacity: 0;
+}
+
+.blur-in-on-scroll.is-blurred-in {
+    animation: blur-in 1.4s ease-out forwards;
+}
+
+/* 按鈕特效 */
+@keyframes breathing-glow {
+
+    0%,
+    100% {
+        box-shadow: 0 0 0 0 rgba(199, 123, 88, 0.4);
+    }
+
+    50% {
+        box-shadow: 0 0 0 12px rgba(199, 123, 88, 0);
+    }
+}
+
+.btn-breathing {
+    animation: breathing-glow 2.4s ease-out infinite !important;
 }
