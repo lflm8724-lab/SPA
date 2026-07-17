@@ -323,6 +323,7 @@ a:hover {
     color: var(--graphite-grey);
     line-height: 1.9;
     max-width: 420px;
+    font-weight: 700;
 }
 
 .s08-text.text-md-end .s08-desc {
